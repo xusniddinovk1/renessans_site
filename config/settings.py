@@ -6,11 +6,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
 
-SECRET_KEY = 'django-insecure-++(8&*)=vp-&(*n+iy$ib2k@+8vz9on2l-&_4u8rfvl648#a6e'
+SECRET_KEY = os.getenv("SECRET_KEY", "")
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
