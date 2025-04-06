@@ -42,3 +42,8 @@ def main_dashboard(request):
         }
     }
     return render(request, "dashboard/index.html", ctx)
+
+
+def gallery_create(request):
+    model = Fotogalereya()
+    form = forms.Fotot
