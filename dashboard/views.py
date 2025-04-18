@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from . import forms
-from . import services
 from lager_app.models import *
 
 
@@ -28,22 +27,21 @@ def logout_page(request):
 
 
 def main_dashboard(request):
-    pictures = Fotogalereya.objects.all()
-    oquvbolim = OquvBolim.objects.all()
-    istirohatzona = IstirohatZona.objects.all()
-    faoliyat = Faoliyat.objects.all()
+    pictures = Gallery.objects.all()
+    education = Education.objects.all()
+    rest_area = RestArea.objects.all()
+    activity = Activity.objects.all()
 
     ctx = {
         "counts": {
             "pictures": len(pictures),
-            "oquvbolim": len(oquvbolim),
-            "istirohatzona": len(istirohatzona),
-            "faoliyat": len(faoliyat),
+            "education": len(education),
+            "rest_area": len(rest_area),
+            "activity": len(activity),
         }
     }
     return render(request, "dashboard/index.html", ctx)
 
 
 def gallery_create(request):
-    model = Fotogalereya()
-    form = forms.Fotot
+    model = Gallery()

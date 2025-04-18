@@ -1,13 +1,13 @@
 from django.db import models
 
 
-class Fotogalereya(models.Model):
+class Gallery(models.Model):
     objects = None
     image = models.ImageField(upload_to="images")
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-class IstirohatZona(models.Model):
+class RestArea(models.Model):
     objects = None
     title = models.CharField(max_length=255, null=False, blank=False)
     body = models.TextField()
@@ -18,7 +18,7 @@ class IstirohatZona(models.Model):
         return self.title
 
 
-class Faoliyat(models.Model):
+class Activity(models.Model):
     objects = None
     title = models.CharField(max_length=255, null=False, blank=False)
     body = models.TextField()
@@ -29,7 +29,7 @@ class Faoliyat(models.Model):
         return self.title
 
 
-class OquvBolim(models.Model):
+class Education(models.Model):
     objects = None
     title = models.CharField(max_length=255, null=False, blank=False)
     body = models.TextField()
