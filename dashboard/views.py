@@ -55,3 +55,16 @@ def gallery_create(request):
         "form": form
     }
     return render(request, "dashboard/form.html", ctx)
+
+
+def gallery_edit(request):
+    model = Gallery()
+    form = forms.GalleryForm(request.POST or None, instance=model)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("gallery_list")
+    ctx = {
+        "model": model,
+        "form": form
+    }
+    return render(request, "dashboard/form.html", ctx)
