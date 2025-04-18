@@ -1,22 +1,22 @@
 from django import forms
-from models import Fotogalereya, OquvBolim, IstirohatZona, Faoliyat
+from models import Gallery, Education, RestArea, Activity
 
 
-class FotogalereyaForm(forms.ModelForm):
-    model = Fotogalereya
+class GalleryForm(forms.ModelForm):
+    model = Gallery
     fields = "__all__"
 
 
-class IstirohatZonaForm(forms.ModelForm):
-    model = IstirohatZona
+class RestAreaForm(forms.ModelForm):
+    model = RestArea
     fields = "__all__"
 
 
-class OquvBolimForm(forms.ModelForm):
-    model = OquvBolim
+class EducationForm(forms.ModelForm):
+    model = Education
     fields = "__all__"
 
 
-class FaoliyatForm(forms.ModelForm):
-    model = Faoliyat
+class ActivityForm(forms.ModelForm):
+    model = Activity
     fields = "__all__"
