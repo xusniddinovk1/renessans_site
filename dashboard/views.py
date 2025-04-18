@@ -80,7 +80,7 @@ def gallery_list(request):
     ctx = {
         "galleries": galleries
     }
-    return render(request, "dashboard/gallery/list.html")
+    return render(request, "dashboard/gallery/list.html", ctx)
 
 def activity_create(request):
     model = Activity()
@@ -112,3 +112,11 @@ def activity_delete(request, pk):
     model = Activity.objects.get(pk=pk)
     model.delete()
     return redirect("activity_list")
+
+
+def acivity_list(request):
+    activities = Activity.objects.all()
+    ctx = {
+        "activities": activities
+    }
+    return render(request, "dashboard/activity/list.html", ctx)
