@@ -57,8 +57,8 @@ def gallery_create(request):
     return render(request, "dashboard/form.html", ctx)
 
 
-def gallery_edit(request):
-    model = Gallery()
+def gallery_edit(request, pk):
+    model = Gallery.objects.get(pk=pk)
     form = forms.GalleryForm(request.POST or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
@@ -68,3 +68,9 @@ def gallery_edit(request):
         "form": form
     }
     return render(request, "dashboard/form.html", ctx)
+
+
+def gallery_delete(request, pk):
+    model = Gallery.objects.get(pk=pk)
+    model.delete()
+    return redirect("gallery_list")
