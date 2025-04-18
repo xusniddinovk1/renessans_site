@@ -10,3 +10,16 @@ class GalleryForm(forms.ModelForm):
             "image": forms.FileInput(attrs={"class": "form-control",
                                             "onchange": "loadFile(even)"})
         }
+
+
+class EducationForm(forms.ModelForm):
+    class Meta:
+        model = Education
+        fields = "__all__"
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control"}),
+            "body": forms.TextInput(attrs={"class": "form-control"}),
+            "image": forms.FileInput(attrs={"class": "form-control",
+                                            "onchange": "loadFile(even)"})
+        }
+
