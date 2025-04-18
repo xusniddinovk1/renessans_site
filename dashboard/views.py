@@ -74,3 +74,16 @@ def gallery_delete(request, pk):
     model = Gallery.objects.get(pk=pk)
     model.delete()
     return redirect("gallery_list")
+
+
+def activity_create(request):
+    model = Activity()
+    form = forms.ActivityForm(request.POST or None, instance=model)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("activity_list")
+    ctx = {
+        "model": model,
+        "form": form
+    }
+    return render(request, "dashboard/form.html", ctx)
