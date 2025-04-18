@@ -34,3 +34,15 @@ class RestAreaForm(forms.ModelForm):
             "image": forms.FileInput(attrs={"class": "form-control",
                                             "onchange": "loadFile(even)"})
         }
+
+
+class ActivityForm(forms.ModelForm):
+    class Meta:
+        model = Activity
+        fields = "__all__"
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control"}),
+            "body": forms.TextInput(attrs={"class": "form-control"}),
+            "image": forms.FileInput(attrs={"class": "form-control",
+                                            "onchange": "loadFile(even)"})
+        }
