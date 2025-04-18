@@ -87,3 +87,16 @@ def activity_create(request):
         "form": form
     }
     return render(request, "dashboard/form.html", ctx)
+
+
+def activity_edit(request, pk):
+    model = Activity.objects.get(pk=pk)
+    form = forms.ActivityForm(request.POST or None, instance=model)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("activity_list")
+    ctx = {
+        "model": model,
+        "form": form
+    }
+    return render(request, "dashboard/form.html", ctx)
