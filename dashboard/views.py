@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from . import forms
-from lager_app.forms import *
+from .forms import *
 from lager_app.models import *
 
 
@@ -46,4 +46,12 @@ def main_dashboard(request):
 
 def gallery_create(request):
     model = Gallery()
-    form = Ga
+    form = forms.GalleryForm(request.POST or None, instance=model)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("gallery_list")
+    ctx = {
+        "model": model,
+        "form": form
+    }
+    return render(request, "dashboard/form.html", ctx)
