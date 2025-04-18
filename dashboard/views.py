@@ -54,7 +54,7 @@ def gallery_create(request):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/form.html", ctx)
+    return render(request, "dashboard/gallery/form.html", ctx)
 
 
 def gallery_edit(request, pk):
@@ -67,7 +67,7 @@ def gallery_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/form.html", ctx)
+    return render(request, "dashboard/gallery/form.html", ctx)
 
 
 def gallery_delete(request, pk):
@@ -75,6 +75,12 @@ def gallery_delete(request, pk):
     model.delete()
     return redirect("gallery_list")
 
+def gallery_list(request):
+    galleries = Gallery.objects.all()
+    ctx = {
+        "galleries": galleries
+    }
+    return render(request, "dashboard/gallery/list.html")
 
 def activity_create(request):
     model = Activity()
@@ -86,7 +92,7 @@ def activity_create(request):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/form.html", ctx)
+    return render(request, "dashboard/activity/form.html", ctx)
 
 
 def activity_edit(request, pk):
@@ -99,4 +105,10 @@ def activity_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/form.html", ctx)
+    return render(request, "dashboard/activity/form.html", ctx)
+
+
+def activity_delete(request, pk):
+    model = Activity.objects.get(pk=pk)
+    model.delete()
+    return redirect("activity_list")
