@@ -23,3 +23,14 @@ class EducationForm(forms.ModelForm):
                                             "onchange": "loadFile(even)"})
         }
 
+
+class RestAreaForm(forms.ModelForm):
+    class Meta:
+        model = RestArea
+        fields = "__all__"
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control"}),
+            "body": forms.TextInput(attrs={"class": "form-control"}),
+            "image": forms.FileInput(attrs={"class": "form-control",
+                                            "onchange": "loadFile(even)"})
+        }
