@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from dashboard import forms
-from dashboard.forms import *
+from dashboard.forms import GalleryForm, EducationForm, ActivityForm, RestAreaForm
 from lager_app.models import *
 
 
@@ -48,7 +48,7 @@ def main_dashboard(request):
 @login_required_decorator
 def gallery_create(request):
     model = Gallery()
-    form = forms.GalleryForm(request.POST or None, )
+    form = forms.GalleryForm(request.POST or None, request.FILES, instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("gallery_list")
@@ -62,7 +62,7 @@ def gallery_create(request):
 @login_required_decorator
 def gallery_edit(request, pk):
     model = Gallery.objects.get(pk=pk)
-    form = forms.GalleryForm(request.POST or None, instance=model)
+    form = forms.GalleryForm(request.POST or None, request.FILES, instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("gallery_list")
@@ -92,7 +92,7 @@ def gallery_list(request):
 @login_required_decorator
 def activity_create(request):
     model = Activity()
-    form = forms.ActivityForm(request.POST or None, instance=model)
+    form = forms.ActivityForm(request.POST or None, request.FILES,instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("activity_list")
@@ -106,7 +106,7 @@ def activity_create(request):
 @login_required_decorator
 def activity_edit(request, pk):
     model = Activity.objects.get(pk=pk)
-    form = forms.ActivityForm(request.POST or None, instance=model)
+    form = forms.ActivityForm(request.POST or None, request.FILES,instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("activity_list")
@@ -136,7 +136,7 @@ def activity_list(request):
 @login_required_decorator
 def education_create(request):
     model = Education()
-    form = forms.EducationForm(request.POST or None, instance=model)
+    form = forms.EducationForm(request.POST or None, request.FILES,instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("education_list")
@@ -150,7 +150,7 @@ def education_create(request):
 @login_required_decorator
 def education_edit(request, pk):
     model = Education.objects.get(pk=pk)
-    form = EducationForm(request.POST or None, instance=model)
+    form = EducationForm(request.POST or None, request.FILES,instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("education_list")
@@ -180,7 +180,7 @@ def education_list(request):
 @login_required_decorator
 def rest_area_create(request):
     model = RestArea()
-    form = forms.RestAreaForm(request.POST or None, instance=model)
+    form = forms.RestAreaForm(request.POST or None, request.FILES,instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("rest_area_list")
@@ -194,7 +194,7 @@ def rest_area_create(request):
 @login_required_decorator
 def rest_area_edit(request, pk):
     model = RestArea.objects.get(pk=pk)
-    form = RestAreaForm(request.POST or None, instance=model)
+    form = RestAreaForm(request.POST or None, request.FILES,instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect("rest_area__list")

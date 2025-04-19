@@ -1,7 +1,7 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
 {% block content %}
- <div class="page-container">
+<div class="page-container">
     <!-- HEADER DESKTOP-->
     {%include 'dashboard/userbar.html'%}
     <!-- HEADER DESKTOP-->
@@ -26,39 +26,38 @@
                         <div class="table-responsive m-b-40">
                             <table class="table table-borderless table-data3">
                                 <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Image</th>
-                                        <th>Created at</th>
-<!--                                        <th>Age</th>-->
-<!--                                        <th>Group</th>-->
-<!--                                        <th>Image</th>-->
-<!--                                        <th>Actions</th>-->
-                                    </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Rasmi</th>
+                                    <th>Image</th>
+                                    <th>Created At</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    {% for gallery in galleries %}
-                                    <tr>
-                                        <td>{{ gallery.id }}</td>
-                                        <td>{{ gallery.image }}</td>
-                                        <td>{{ gallery.created_at }}</td>
-<!--                                        <td>{{ student.age }}</td>-->
-<!--                                        <td>{{ student.group_name }}</td>-->
+                                {% for gallery in galleries %}
+                                <tr>
+                                    <td>{{ gallery.id }}</td>
+                                    <td><img class="img" src="/media/{{ gallery.image }}" alt="photo"
+                                             style="width:180px;height:180;"></td>
+                                    <td>{{ gallery.image }}</td>
+                                    <td>{{ gallery.created_at }}</td>
 
-                                        <td><img class="img" src="/media/{{ gallery.image }}" alt="photo" width="30px" height="40px"></td>
-
-                                        <td>
-                                            <div class="table-data-feature">
-                                                <a class="item" data-toggle="tooltip" href="{% url 'gallery_edit' pk=gallery.id %}" data-placement="top" title="" data-original-title="Tahrirlash">
-                                                    <i class="zmdi zmdi-edit text-warning"></i>
-                                                </a>
-                                                <a class="item" data-toggle="tooltip" href="{% url 'gallery_delete' pk=gallery.id %}" data-placement="top" title="" data-original-title="O'chirish">
-                                                    <i class="zmdi zmdi-delete text-danger"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a class="item" data-toggle="tooltip"
+                                               href="{% url 'gallery_edit' pk=gallery.id %}" data-placement="top"
+                                               title="" data-original-title="Tahrirlash">
+                                                <i class="zmdi zmdi-edit text-warning"></i>
+                                            </a>
+                                            <a class="item" data-toggle="tooltip"
+                                               href="{% url 'gallery_delete' pk=gallery.id %}" data-placement="top"
+                                               title="" data-original-title="O'chirish">
+                                                <i class="zmdi zmdi-delete text-danger"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>
