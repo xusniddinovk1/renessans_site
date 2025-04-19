@@ -114,7 +114,7 @@ def activity_delete(request, pk):
     return redirect("activity_list")
 
 
-def acivity_list(request):
+def activity_list(request):
     activities = Activity.objects.all()
     ctx = {
         "activities": activities
