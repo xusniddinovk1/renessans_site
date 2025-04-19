@@ -160,3 +160,42 @@ def education_list(request):
         "educations": educations
     }
     return render(request, "dashboard/education/list.html", ctx)
+
+def rest_area_create(request):
+    model = RestArea()
+    form = forms.RestAreaForm(request.POST or None, instance=model)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("rest_area_list")
+    ctx = {
+        "model": model,
+        "form": form
+    }
+    return render(request, "dashboard/rest_area/form.html", ctx)
+
+
+def rest_area_edit(request, pk):
+    model = RestArea.objects.get(pk=pk)
+    form = RestAreaForm(request.POST or None, instance=model)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("rest_area__list")
+    ctx = {
+        "model": model,
+        "form": form
+    }
+    return render(request, "dashboard/rest_area/form.html", ctx)
+
+
+def rest_area_delete(request, pk):
+    model = RestArea.objects.get(pk=pk)
+    model.delete()
+    return redirect("rest_area_list")
+
+
+# def rest_area_list(request):
+#     rest_areas = RestArea.objects.all()
+#     ctx = {
+#         "rest_areas": rest_areas
+#     }
+#     return render(request, "dashboard/rest_area/list.html", ctx)
