@@ -9,7 +9,6 @@ def login_required_decorator(func):
     return login_required(func, login_url="login_page")
 
 
-@login_required_decorator
 def login_page(request):
     if request.POST:
         username = request.POST.get("username", None)
@@ -18,9 +17,10 @@ def login_page(request):
         if user is not None:
             login(request, user)
             return redirect("main_dashboard")
-        return render(request, "dashboard/login.html")
+    return render(request, "dashboard/login.html")
 
 
+@login_required_decorator
 def logout_page(request):
     logout(request)
     return redirect("login_page")
