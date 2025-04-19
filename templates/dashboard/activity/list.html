@@ -30,6 +30,7 @@
                                         <th>#</th>
                                         <th>Nomi</th>
                                         <th>Image</th>
+                                        <th>Created At</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,6 +39,7 @@
                                         <td>{{ activity.id }}</td>
                                         <td>{{ activity.title }}</td>
                                         <td>{{ activity.image }}</td>
+                                        <td>{{ activity.creted_at }}</td>
                                         <td>
                                             <div class="table-data-feature">
                                                 <a class="item" data-toggle="tooltip" href="{% url 'activity_edit' pk=activity.id %}" data-placement="top" title="" data-original-title="Tahrirlash">
