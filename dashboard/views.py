@@ -134,3 +134,17 @@ def education_create(request):
     }
     return render(request, "dashboard/education/form.html", ctx)
 
+
+def education_edit(request, pk):
+    model = Education.objects.get(pk=pk)
+    form = EducationForm(request.POST or None, instance=model)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect("education_list")
+    ctx = {
+        "model": model,
+        "form": form
+    }
+    return render(request, "dashboard/education/form.html", ctx)
+
+
