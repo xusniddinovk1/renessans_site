@@ -41,7 +41,7 @@ def main_dashboard(request):
             "activity": len(activity),
         }
     }
-    return render(request, "dashboard/index.html", ctx)
+    return render(request, "templates/dashboard/index.html", ctx)
 
 
 def gallery_create(request):
@@ -54,7 +54,7 @@ def gallery_create(request):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/gallery/form.html", ctx)
+    return render(request, "templates/dashboard/gallery/form.html", ctx)
 
 
 def gallery_edit(request, pk):
@@ -67,7 +67,7 @@ def gallery_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/gallery/form.html", ctx)
+    return render(request, "templates/dashboard/gallery/form.html", ctx)
 
 
 def gallery_delete(request, pk):
@@ -80,7 +80,7 @@ def gallery_list(request):
     ctx = {
         "galleries": galleries
     }
-    return render(request, "dashboard/gallery/list.html", ctx)
+    return render(request, "templates/dashboard/gallery/list.html", ctx)
 
 def activity_create(request):
     model = Activity()
@@ -92,7 +92,7 @@ def activity_create(request):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/activity/form.html", ctx)
+    return render(request, "templates/dashboard/activity/form.html", ctx)
 
 
 def activity_edit(request, pk):
@@ -105,7 +105,7 @@ def activity_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/activity/form.html", ctx)
+    return render(request, "templates/dashboard/activity/form.html", ctx)
 
 
 def activity_delete(request, pk):
@@ -119,7 +119,7 @@ def activity_list(request):
     ctx = {
         "activities": activities
     }
-    return render(request, "dashboard/activity/list.html", ctx)
+    return render(request, "templates/dashboard/activity/list.html", ctx)
 
 
 def education_create(request):
@@ -132,7 +132,7 @@ def education_create(request):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/education/form.html", ctx)
+    return render(request, "templates/dashboard/education/form.html", ctx)
 
 
 def education_edit(request, pk):
@@ -145,7 +145,7 @@ def education_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/education/form.html", ctx)
+    return render(request, "templates/dashboard/education/form.html", ctx)
 
 
 def education_delete(request, pk):
@@ -159,7 +159,7 @@ def education_list(request):
     ctx = {
         "educations": educations
     }
-    return render(request, "dashboard/education/list.html", ctx)
+    return render(request, "templates/dashboard/education/list.html", ctx)
 
 def rest_area_create(request):
     model = RestArea()
@@ -171,7 +171,7 @@ def rest_area_create(request):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/rest_area/form.html", ctx)
+    return render(request, "templates/dashboard/rest_area/form.html", ctx)
 
 
 def rest_area_edit(request, pk):
@@ -184,7 +184,7 @@ def rest_area_edit(request, pk):
         "model": model,
         "form": form
     }
-    return render(request, "dashboard/rest_area/form.html", ctx)
+    return render(request, "templates/dashboard/rest_area/form.html", ctx)
 
 
 def rest_area_delete(request, pk):
@@ -198,4 +198,4 @@ def rest_area_list(request):
     ctx = {
         "rest_areas": rest_areas
     }
-    return render(request, "dashboard/rest_area/list.html", ctx)
+    return render(request, "templates/dashboard/rest_area/list.html", ctx)
