@@ -8,7 +8,8 @@ class GalleryForm(forms.ModelForm):
         fields = "__all__"
         widgets = {
             "image": forms.FileInput(attrs={"class": "form-control",
-                                            "onchange": "loadFile(event)"})
+                                            "onchange": "loadFile(event)"},
+                                     ),
         }
 
 
@@ -20,7 +21,7 @@ class EducationForm(forms.ModelForm):
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "body": forms.TextInput(attrs={"class": "form-control"}),
             "image": forms.FileInput(attrs={"class": "form-control",
-                                            "onchange": "loadFile(even)"})
+                                            "onchange": "loadFile(event)"})
         }
 
 
@@ -32,7 +33,7 @@ class RestAreaForm(forms.ModelForm):
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "body": forms.TextInput(attrs={"class": "form-control"}),
             "image": forms.FileInput(attrs={"class": "form-control",
-                                            "onchange": "loadFile(even)"})
+                                            "onchange": "loadFile(event)"})
         }
 
 

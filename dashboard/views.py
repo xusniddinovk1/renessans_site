@@ -47,7 +47,7 @@ def main_dashboard(request):
 @login_required_decorator
 def gallery_create(request):
     model = Gallery()
-    form = forms.GalleryForm(request.POST or None, instance=model)
+    form = forms.GalleryForm(request.POST or None,)
     if request.POST and form.is_valid():
         form.save()
         return redirect("gallery_list")
