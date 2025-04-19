@@ -193,9 +193,9 @@ def rest_area_delete(request, pk):
     return redirect("rest_area_list")
 
 
-# def rest_area_list(request):
-#     rest_areas = RestArea.objects.all()
-#     ctx = {
-#         "rest_areas": rest_areas
-#     }
-#     return render(request, "dashboard/rest_area/list.html", ctx)
+def rest_area_list(request):
+    rest_areas = RestArea.objects.all()
+    ctx = {
+        "rest_areas": rest_areas
+    }
+    return render(request, "dashboard/rest_area/list.html", ctx)
