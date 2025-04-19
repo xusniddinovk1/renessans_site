@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import *
+from dashboard import forms
+from dashboard.forms import *
 from lager_app.models import *
 
 
@@ -47,7 +48,7 @@ def main_dashboard(request):
 @login_required_decorator
 def gallery_create(request):
     model = Gallery()
-    form = forms.GalleryForm(request.POST or None,)
+    form = forms.GalleryForm(request.POST or None, )
     if request.POST and form.is_valid():
         form.save()
         return redirect("gallery_list")
