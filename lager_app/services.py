@@ -18,6 +18,27 @@ def dict_fetchone(cursor):
 
 def get_gallery():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT * FROM lager_app_fotogalereya""")
-        pictures = dict_fetchall(cursor)
-        return pictures
+        cursor.execute("""SELECT * FROM lager_app_gallery""")
+        galleries = dict_fetchall(cursor)
+        return galleries
+
+
+def get_education():
+    with closing(connection.cursor()) as cursor:
+        cursor.execute("""SELECT * FROM lager_app_education""")
+        educations = dict_fetchall(cursor)
+        return educations
+
+
+def get_activity():
+    with closing(connection.cursor()) as cursor:
+        cursor.execute("""SELECT * FROM lager_app_activities""")
+        activities = dict_fetchall(cursor)
+        return activities
+
+
+def get_rest_area():
+    with closing(connection.cursor()) as cursor:
+        cursor.execute("""SELECT * FROM lager_app_restarea""")
+        rest_areas = dict_fetchall(cursor)
+        return rest_areas
