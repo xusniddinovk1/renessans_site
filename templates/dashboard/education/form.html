@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
- <div class="page-container">
+<div class="page-container">
     <!-- HEADER DESKTOP-->
     {%include 'userbar.html'%}
     <!-- HEADER DESKTOP-->
@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="overview-wrap">
-                            <h2 class="title-1">Add Chair</h2>
+                            <h2 class="title-1">O'quv Bo'lim Qo'shish</h2>
                         </div>
                     </div>
                 </div>
@@ -29,14 +29,16 @@
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <label class=" form-control-label">Name</label>
-                                        {{ form.name }}
+                                        <label class=" form-control-label">Nomi</label>
+                                        {{ form.title }}
+                                        <label class=" form-control-label">Rasmi</label>
+                                        {{ form.image }}
                                     </div>
 
                                     {% if model %}
-                                    <button type="submit" class="btn btn-warning btn-md">Save</button>
+                                    <button type="submit" class="btn btn-warning btn-md">Saqlash</button>
                                     {% else %}
-                                    <button type="submit" class="btn btn-success btn-md">Add</button>
+                                    <button type="submit" class="btn btn-success btn-md">Qo'shish</button>
                                     {% endif %}
                                 </form>
                             </div>
