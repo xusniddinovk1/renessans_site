@@ -8,7 +8,7 @@ class GalleryForm(forms.ModelForm):
         fields = "__all__"
         widgets = {
             "image": forms.FileInput(attrs={"class": "form-control",
-                                            "onchange": "loadFile(even)"})
+                                            "onchange": "loadFile(event)"})
         }
 
 
