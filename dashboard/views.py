@@ -148,3 +148,7 @@ def education_edit(request, pk):
     return render(request, "dashboard/education/form.html", ctx)
 
 
+def education_delete(request, pk):
+    model = Education.objects.get(pk=pk)
+    model.delete()
+    return redirect("education_list")
