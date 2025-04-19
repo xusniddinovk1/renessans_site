@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -14,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="overview-wrap">
-                            <h2 class="title-1">Add Student</h2>
+                            <h2 class="title-1">Rasm Qo'shish</h2>
                         </div>
                     </div>
                 </div>
@@ -30,22 +29,14 @@
                                 <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <label class=" form-control-label">First Name</label>
-                                        {{ form.first_name }}
-                                        <label class=" form-control-label">Last Name</label>
-                                        {{ form.last_name }}
-                                        <label class=" form-control-label">Age</label>
-                                        {{ form.age }}
-                                        <label class=" form-control-label">Group</label>
-                                        {{ form.group }}
-                                        <label  class=" form-control-label">Image</label>
+                                        <label  class=" form-control-label">Rasm</label>
                                         {{form.image}}
                                     </div>
 
                                     {% if model %}
-                                    <button type="submit" class="btn btn-warning btn-md">Save</button>
+                                    <button type="submit" class="btn btn-warning btn-md">Saqlash</button>
                                     {% else %}
-                                    <button type="submit" class="btn btn-success btn-md">Add</button>
+                                    <button type="submit" class="btn btn-success btn-md">Qo'shish</button>
                                     {% endif %}
                                 </form>
                             </div>
