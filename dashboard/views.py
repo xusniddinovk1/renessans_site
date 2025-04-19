@@ -152,3 +152,11 @@ def education_delete(request, pk):
     model = Education.objects.get(pk=pk)
     model.delete()
     return redirect("education_list")
+
+
+def education_list(request):
+    educations = Education.objects.all()
+    ctx = {
+        "educations": educations
+    }
+    return render(request, "dashboard/education/list.html", ctx)
